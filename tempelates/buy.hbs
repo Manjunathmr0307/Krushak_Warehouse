@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Items</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('your-background-image.jpg'); /* Add your background image URL */
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh; /* Ensure the body takes up the full viewport height */      
+      }
+
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(5px); /* Apply background blur effect */
+    }
+
+    /* Style the background image */
+    .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+      .item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .item button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 15px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+      }
+
+      .item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+
+      .item:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .item span {
+        flex-grow: 1;
+      }
+
+      .item button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .item button:hover {
+        background-color: #0056b3;
+      }
+
+      #order-summary {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      #ordered-items {
+        list-style: none;
+        padding: 0;
+      }
+
+      #ordered-items li {
+        margin: 5px 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .container {
+          max-width: 90%;
+        }
+      }
+
+      /* New CSS for the delivery page section */
+      #delivery-form {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      #delivery-form h2 {
+        margin-bottom: 10px;
+        color: #007bff;
+      }
+
+      #delivery-form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      #delivery-form input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      #delivery-form button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #delivery-form button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Add this CSS to your existing styles */
+
+      /* Styling for the Remove button */
+      .remove-button {
+        background-color: #ff6347; /* Red color */
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .remove-button:hover {
+        background-color: #d9300c; /* Darker red color on hover */
+      }
+
+      /* Styling for the Back button */
+      .back-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      .back-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <img class="background-image" src="delivery.jpg" alt="Background Image">
+  </div>
+    <div class="container">
+      <h1>Buy Items</h1>
+      <!-- Dynamic item input fields -->
+      <div id="item-inputs">
+        <div class="item">
+          <input type="text" placeholder="Item name" class="item-name" />
+          <input
+            type="number"
+            placeholder="Quantity"
+            class="item-quantity"
+            min="1"
+            value="1"
+          />
+          <button class="order-button">Order</button>
+        </div>
+      </div>
+
+      <div id="order-summary">
+        <h2>Order Summary</h2>
+        <ul id="ordered-items"></ul>
+      </div>
+
+      <!-- New Delivery Form Section -->
+      <div id="delivery-form">
+        <h2>Delivery Information</h2>
+        <form action="/buy">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required />
+
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone" required />
+
+          <button type="submit">Place Order</button>
+          <!-- Back button added here -->
+          <a href="/order" class="back-button">Back</a>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const orderButtons = document.querySelectorAll(".order-button");
+      const orderedItemsList = document.getElementById("ordered-items");
+
+      orderButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const itemContainer = button.parentElement;
+          const itemName = itemContainer.querySelector(".item-name").value;
+          const itemQuantity =
+            itemContainer.querySelector(".item-quantity").value;
+          const listItem = document.createElement("li");
+          listItem.innerHTML = `${itemQuantity} x ${itemName} <button class="remove-button">Remove</button>`;
+          orderedItemsList.appendChild(listItem);
+
+          const removeButtons =
+            orderedItemsList.querySelectorAll(".remove-button");
+
+          removeButtons.forEach((removeButton) => {
+            removeButton.addEventListener("click", () => {
+              // Get the parent list item of the clicked Remove button
+              const listItem = removeButton.parentElement;
+
+              // Remove the clicked list item
+              orderedItemsList.removeChild(listItem);
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bg0.jpg'); /* Add your background image URL */
+            background-size: cover;
+            background-position: center;
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+            min-height: 100vh; /* Ensure the body takes up the full viewport height */
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(5px); /* Apply background blur effect */
+        }
+
+        /* Style the background image */
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(182, 234, 237, 0.202);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px); /* Add background blur effect */
+        }
+
+        /* Tagline styles */
+        .tagline {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Button group styles */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Buy button styles */
+        .button-group button:nth-child(1) {
+            background-color: #39b54a; /* Traffic green color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-right: 20px; /* Add margin to create horizontal gap */
+        }
+
+        /* Sell button styles */
+        .button-group button:nth-child(2) {
+            background-color: #ff3838; /* Traffic red color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-right: 20px; /* Add margin to create horizontal gap */
+        }
+
+        .button-group button:hover:nth-child(1) {
+            background-color: #31723b;
+        }
+
+        .button-group button:hover:nth-child(2) {
+            background-color: #8b3331;
+        }
+
+        /* Other Ingredients button styles */
+        .other-ingredients button {
+            background-color: #007bff; /* Attractive blue color */
+            color: #fff;
+            border: none;
+            padding: 5px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .other-ingredients button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Back button styles */
+        .back-button {
+            text-align: center;
+        }
+
+        .back-button button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .back-button button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img class="background-image" src="delivery.jpg" alt="Background Image">
+    </div>
+    <div class="container">
+        <div class="tagline"><b>Order</b></div>
+        <div class="button-group">
+            <form action="/buy">
+                <button>Buy</button>
+            </form>
+            <form action="/sell">
+                <button>Sell</button>
+            </form>
+        </div>
+        <div class="other-ingredients">
+            <form action="/oi">
+            <button>Other Ingredients</button>
+            </form>
+        </div>
+        <form action="/home">
+            <div class="back-button">
+                <button>Back</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

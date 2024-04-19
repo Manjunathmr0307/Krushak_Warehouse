@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Job Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide horizontal overflow */
+        }
+
+        /* Create a container for the blurred background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(10px); /* Apply background blur effect */
+        }
+
+        /* Style the background image */
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            height: 80vh; /* Set a fixed height for scrollability */
+            overflow-y: scroll; /* Enable vertical scrolling */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Create a flex container for buttons */
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px; /* Add margin to separate buttons */
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img class="background-image" src="delivery.jpg" alt="Background Image">
+    </div>
+    <div class="container">
+        <h1>Delivery Job Registration</h1>
+        <form action="/jobreg" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]*">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required >
+            </div>
+            <div class="form-group">
+                <label for="vehicle">Vehicle Type:</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="2-wheeler">2 Wheeler</option>
+                    <option value="3-wheeler">3 Wheeler</option>
+                    <option value="4-wheeler">4 Wheeler</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dl">Driving License Number:</label>
+                <input type="text" id="dl" name="dl" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Card Number (Numeric Only):</label>
+                <input type="text" id="aadhaar" name="aadhaar" required pattern="[0-9]*">
+            </div>
+            <div class="form-group">
+                <label for="vnumber">Delivery Vehicle Number:</label>
+                <input type="text" id="vnumber" name="vnumber" class=vnumber" required>
+            </div>
+            <!-- Wrap both buttons in a div for flex positioning -->
+            <div class="button-container">
+                <button type="submit">Register</button>
+                <button ><a href="/home"><i class="fas fa-question-circle"></i>Back</a></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

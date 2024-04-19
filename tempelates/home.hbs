@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 115px;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        /* Create a container for the blurred background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(7px); /* Apply background blur effect */
+        }
+
+        /* Style the background image */
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(182, 234, 237,0.202);
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+            border: 1px solid #ccc;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .box {
+            max-height: 1000px;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .box button {
+            display: block;
+            background-color: transparent;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .box button:hover {
+            background-color: #8ae0e8;
+        }
+
+        /* Apply the same styling to the Logout button */
+        .box .logout-button {
+            display: block;
+            background-color: transparent;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .box .logout-button:hover {
+            background-color: #8ae0e8;
+        }
+
+        #b1{
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body id="b1">
+    <div class="background-container">
+        <img class="background-image" src="bg0.jpg" alt="Background Image">
+    </div>
+    <div class="container">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="box">
+            
+            <form action="/order">
+                <button><b>Order</b></button>
+            </form>
+                     
+            <form action="/presentnotify">
+                <button><b>Notification</b></button>
+            </form>
+            <!-- Apply the same class to the Logout button -->
+            <form action="/logout">
+                <button class="logout-button"><b>Logout</b></button>
+            </form>
+        </div>
+        <div class="centered">
+        </div>
+    </div>
+</body>
+</html>
